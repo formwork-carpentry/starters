@@ -1,0 +1,47 @@
+{
+  "name": "@formwork/saas-starter",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx --watch src/server.ts",
+    "start": "tsx src/server.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@formwork/admin": "workspace:*",
+    "@formwork/auth": "workspace:*",
+    "@formwork/billing": "workspace:*",
+    "@formwork/cache": "workspace:*",
+    "@formwork/core": "workspace:*",
+    "@formwork/db": "workspace:*",
+    "@formwork/events": "workspace:*",
+    "@formwork/flags": "workspace:*",
+    "@formwork/foundation": "workspace:*",
+    "@formwork/graphql": "workspace:*",
+    "@formwork/helpers": "workspace:*",
+    "@formwork/http": "workspace:*",
+    "@formwork/i18n": "workspace:*",
+    "@formwork/log": "workspace:*",
+    "@formwork/mail": "workspace:*",
+    "@formwork/media": "workspace:*",
+    "@formwork/notifications": "workspace:*",
+    "@formwork/orm": "workspace:*",
+    "@formwork/otel": "workspace:*",
+    "@formwork/padlock": "workspace:*",
+    "@formwork/queue": "workspace:*",
+    "@formwork/resilience": "workspace:*",
+    "@formwork/scheduler": "workspace:*",
+    "@formwork/session": "workspace:*",
+    "@formwork/sociallock": "workspace:*",
+    "@formwork/storage": "workspace:*",
+    "@formwork/tenancy": "workspace:*",
+    "@formwork/ui": "workspace:*",
+    "@formwork/validation": "workspace:*",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.4",
+    "vitest": "^4.1.0"
+  }
+}

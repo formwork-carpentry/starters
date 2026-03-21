@@ -1,0 +1,7 @@
+{
+  "name": "carpenter-starters",
+  "version": "1.0.0-alpha.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Starter templates for Carpenter projects"
+}
