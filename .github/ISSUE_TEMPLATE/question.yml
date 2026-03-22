@@ -1,0 +1,35 @@
+name: Question
+description: Ask a question about usage or starter templates
+title: "question: "
+labels: [question]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before asking, please check the [README](./README.md) and existing issues to see if your question has already been answered.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: starter
+    attributes:
+      label: Related Starter
+      description: Which starter template does this relate to? (optional)
+      options:
+        - api-starter
+        - blog-starter
+        - fullstack-starter
+        - saas-starter
+        - General / All starters
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Any additional context that might help us answer your question.

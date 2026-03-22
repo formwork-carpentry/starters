@@ -1,0 +1,36 @@
+version: 2
+updates:
+  # npm dependencies for root
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 10
+    reviewers:
+      - elcomware
+    labels:
+      - dependencies
+      - automated
+    commit-message:
+      prefix: "chore(deps)"
+
+  # GitHub Actions
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: UTC
+    open-pull-requests-limit: 5
+    reviewers:
+      - elcomware
+    labels:
+      - dependencies
+      - github-actions
+      - automated
+    commit-message:
+      prefix: "chore(ci)"
