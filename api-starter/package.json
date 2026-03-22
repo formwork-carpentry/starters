@@ -1,5 +1,5 @@
 {
-  "name": "@formwork/api-starter",
+  "name": "carpenter-api-starter",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,5 +7,15 @@
     "dev": "tsx --watch src/server.ts",
     "start": "tsx src/server.ts",
     "test": "vitest run"
+  },
+  "dependencies": {
+    "@carpentry/formwork": "^1.0.0-alpha.0",
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "tsx": "^4.21.0",
+    "vitest": "^4.1.0",
+    "@types/node": "^22.0.0"
   }
 }

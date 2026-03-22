@@ -1,12 +1,17 @@
 {
-  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "rootDir": "../..",
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "outDir": "./dist",
+    "rootDir": "./src",
     "noEmit": true,
-    "composite": false,
     "declaration": false,
-    "declarationMap": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "types": ["node"]
   },
   "include": ["src/**/*.ts"],
