@@ -1,74 +1,40 @@
-# Carpenter API Starter
+# Api Starter
 
-Production-ready REST API built with the [Carpenter Framework](https://github.com/formwork-carpentry).
+A production-style Api Starter starter for Carpenter applications.
 
-## Features
+## What You Get
 
-- **MVC Architecture** — Controllers, models, services, and middleware
-- **Authentication** — JWT + session guards with hashing
-- **Event System** — Domain events with listeners
-- **Validation** — Request validation with custom rules
-- **Resilience** — Circuit breaker, retry, and rate limiting
-- **HTTP Client** — External API integration
+- Opinionated project structure
+- TypeScript + ESM runtime setup
+- Ready-to-run development scripts
+- Integration with `@carpentry/formwork`
 
-## Quick Start
+## Prerequisites
+
+- Node.js 20+
+- npm, pnpm, or Bun
+
+## Install
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server (hot-reload)
-npm run dev
-
-# Production start
-npm start
 ```
 
-## Project Structure
-
-```
-src/
-├── config/          # Environment-driven configuration
-├── controllers/     # Request handlers
-├── events/          # Domain events & listeners
-├── middleware/       # HTTP middleware
-├── models/          # ORM models (Active Record)
-├── routes/          # Route definitions (auth, posts, external)
-├── services/        # Business logic
-├── app.ts           # Application bootstrap
-└── server.ts        # Server entry point
-```
-
-## Endpoints
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/health` | Health check |
-| POST | `/auth/register` | Register user |
-| POST | `/auth/login` | Login (JWT) |
-| GET | `/api/posts` | List posts |
-| POST | `/api/posts` | Create post |
-| GET | `/api/external/weather` | External API demo |
-
-## Environment
-
-Copy `.env` and configure as needed:
+## Run
 
 ```bash
-APP_NAME=APIStarter
-APP_PORT=3000
-DB_CONNECTION=memory
-JWT_SECRET=change-me-in-production
+npm run dev
 ```
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start with hot-reload |
-| `npm start` | Production start |
-| `npm test` | Run tests |
+| Script | Command |
+| --- | --- |
+| dev | tsx --watch src/server.ts |
+| start | tsx src/server.ts |
+| test | vitest run |
 
-## License
+## Notes
 
-MIT
+- This project is intentionally minimal and designed to be extended incrementally.
+- For full platform guidance, see the monorepo README files in `formworks`, `carpenter`, `starters`, and `examples`.

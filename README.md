@@ -1,29 +1,26 @@
-# Carpenter Starters
+# Starters
 
-Ready-to-use starter templates for Carpenter projects.
+Professional starter templates for Carpenter projects. Each starter is intended for immediate local development and can be evolved into production services.
 
 ## Available Starters
 
-| Starter | Description |
-|---------|-------------|
-| **api-starter** | Minimal API server |
-| **blog-starter** | Blog with content management |
-| **fullstack-starter** | Fullstack app with frontend |
-| **saas-starter** | Multi-tenant SaaS application |
+| Starter | Directory | Guide |
+| --- | --- | --- |
+| Api Starter | api-starter | api-starter/README.md |
+| Blog Starter | blog-starter | blog-starter/README.md |
+| Fullstack Starter | fullstack-starter | fullstack-starter/README.md |
+| Saas Starter | saas-starter | saas-starter/README.md |
 
 ## Usage
 
-Use the Carpenter CLI to scaffold from a starter:
-
 ```bash
-bunx create-carpenter-app my-app --starter api
+cd <starter-directory>
+npm install
+npm run dev
 ```
 
-Or clone directly:
+## Design Goals
 
-```bash
-git clone https://github.com/formwork-carpentry/starters.git
-cp -r starters/api-starter my-new-project
-cd my-new-project
-bun install
-```
+- Fast onboarding for new projects
+- Consistent baseline conventions
+- Clear extension points for domain logic

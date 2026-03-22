@@ -1,90 +1,40 @@
-# Carpenter SaaS Starter
+# Saas Starter
 
-Multi-tenant SaaS platform built with the [Carpenter Framework](https://github.com/formwork-carpentry).
+A production-style Saas Starter starter for Carpenter applications.
 
-## Features
+## What You Get
 
-- **Multi-Tenancy** — Subdomain-based tenant isolation
-- **Billing** — Subscription plans, usage metering, invoices
-- **Authentication** — JWT + social login (Google, GitHub)
-- **Authorization** — Role-based access control per tenant
-- **Admin Panel** — Tenant management dashboard
-- **GraphQL** — GraphQL API alongside REST
-- **i18n** — Multi-language support
-- **Feature Flags** — Per-tenant feature toggles
-- **Queue** — Background job processing
-- **Mail** — Transactional emails with templates
-- **Notifications** — Multi-channel (mail, database)
-- **Storage & Media** — Tenant-scoped file management
-- **Scheduler** — Cron-like billing and cleanup tasks
-- **Observability** — OpenTelemetry tracing & audit logging
-- **Resilience** — Circuit breaker, retry, rate limiting
+- Opinionated project structure
+- TypeScript + ESM runtime setup
+- Ready-to-run development scripts
+- Integration with `@carpentry/formwork`
 
-## Quick Start
+## Prerequisites
+
+- Node.js 20+
+- npm, pnpm, or Bun
+
+## Install
 
 ```bash
-# Install dependencies
 npm install
-
-# Start development server (hot-reload)
-npm run dev
-
-# Production start
-npm start
 ```
 
-## Project Structure
-
-```
-src/
-├── app/               # Application layer
-├── config/            # Environment-driven configuration
-├── controllers/       # Request handlers
-├── database/          # Migrations, seeders
-├── events/            # Domain events & listeners
-├── middleware/         # Auth, tenancy, CORS middleware
-├── models/            # User, Tenant, Plan, Subscription models
-├── resources/         # Views, translations
-├── routes/            # Web + API + tenant routes
-├── services/          # Business logic
-├── tenants/           # Tenant-specific configuration
-├── app.ts             # Application bootstrap
-└── server.ts          # Server entry point
-```
-
-## Endpoints
-
-| Method | Path | Description |
-|--------|------|-------------|
-| GET | `/health` | Health check |
-| POST | `/auth/register` | Register |
-| POST | `/auth/login` | Login (JWT) |
-| POST | `/tenants` | Create tenant |
-| GET | `/tenants/:id` | Tenant details |
-| GET | `/billing/plans` | List plans |
-| POST | `/billing/subscribe` | Subscribe to plan |
-| GET | `/billing/usage` | Usage metrics |
-
-## Environment
+## Run
 
 ```bash
-APP_NAME="SaaS Platform"
-APP_PORT=3002
-DB_CONNECTION=memory
-TENANCY_RESOLVER=subdomain
-JWT_SECRET=change-me
-STORAGE_DRIVER=local
-FLAGS_DRIVER=memory
+npm run dev
 ```
 
 ## Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start with hot-reload |
-| `npm start` | Production start |
-| `npm test` | Run tests |
+| Script | Command |
+| --- | --- |
+| dev | tsx --watch src/server.ts |
+| start | tsx src/server.ts |
+| test | vitest run |
 
-## License
+## Notes
 
-MIT
+- This project is intentionally minimal and designed to be extended incrementally.
+- For full platform guidance, see the monorepo README files in `formworks`, `carpenter`, `starters`, and `examples`.
