@@ -3,6 +3,13 @@
     "target": "ES2022",
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "baseUrl": "./src",
+    "paths": {
+      "routes/*": ["routes/generated/*"],
+      "@carpentry/ui-react": ["../../formworks/packages/ui-react/src/index.ts"],
+      "@carpentry/ui-charts": ["../../formworks/packages/ui-charts/src/index.ts"],
+      "@carpentry/icons": ["../../formworks/packages/icons/src/index.ts"]
+    },
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
