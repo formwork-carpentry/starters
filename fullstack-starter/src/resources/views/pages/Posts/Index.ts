@@ -1,7 +1,7 @@
 /**
  * Posts index page — CRUD table with search island.
  */
-import { IslandRenderer } from '@formwork/ui';
+import { IslandRenderer } from '@carpentry/formworks/ui';
 import { AppLayout } from '../../layouts/AppLayout.js';
 import { SearchBarIsland } from '../../islands/SearchBar.js';
 

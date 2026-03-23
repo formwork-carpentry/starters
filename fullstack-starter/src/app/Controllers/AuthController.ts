@@ -5,13 +5,13 @@ import { attr } from '../../helpers.js';
  */
 
 import { User } from '../Models/index.js';
-import { createToken } from '@formwork/auth';
-import type { IRequest, IResponse } from '@formwork/core/contracts';
-import type { Container } from '@formwork/core/container';
-import { EventDispatcher } from '@formwork/events';
-import { CarpenterResponse } from '@formwork/http';
-import { Session, MemorySessionStore } from '@formwork/session';
-import { Validator } from '@formwork/validation';
+import { createToken } from '@carpentry/formworks/auth';
+import type { IRequest, IResponse } from '@carpentry/formworks/core/contracts';
+import type { Container } from '@carpentry/formworks/core/container';
+import { EventDispatcher } from '@carpentry/formworks/events';
+import { CarpenterResponse } from '@carpentry/formworks/http';
+import { Session, MemorySessionStore } from '@carpentry/formworks/session';
+import { Validator } from '@carpentry/formworks/validation';
 
 const validator = new Validator();
 const sessionStore = new MemorySessionStore();

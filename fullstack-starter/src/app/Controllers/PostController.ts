@@ -5,12 +5,12 @@ import { attr } from '../../helpers.js';
  */
 
 import { Post, Comment } from '../Models/index.js';
-import { MemoryCacheStore } from '@formwork/cache';
-import type { IRequest, IResponse } from '@formwork/core/contracts';
-import type { Container } from '@formwork/core/container';
-import { EventDispatcher } from '@formwork/events';
-import { CarpenterResponse } from '@formwork/http';
-import { Validator } from '@formwork/validation';
+import { MemoryCacheStore } from '@carpentry/formworks/cache';
+import type { IRequest, IResponse } from '@carpentry/formworks/core/contracts';
+import type { Container } from '@carpentry/formworks/core/container';
+import { EventDispatcher } from '@carpentry/formworks/events';
+import { CarpenterResponse } from '@carpentry/formworks/http';
+import { Validator } from '@carpentry/formworks/validation';
 
 const validator = new Validator();
 

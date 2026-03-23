@@ -1,8 +1,8 @@
 /**
- * Billing configuration — integrates @formwork/billing with plan-based pricing.
+ * Billing configuration — integrates @carpentry/billing with plan-based pricing.
  */
-import { InMemoryPaymentProvider } from '@formwork/billing';
-import type { Plan, Customer, Subscription } from '@formwork/billing';
+import { InMemoryPaymentProvider } from '@carpentry/billing';
+import type { Plan, Customer, Subscription } from '@carpentry/billing';
 
 /** Available SaaS plans. */
 export const PLANS: Plan[] = [
@@ -17,6 +17,10 @@ export function configureBilling(): InMemoryPaymentProvider {
     provider.addPlan(plan);
   }
   return provider;
+}
+
+export function createBillingConfig(): InMemoryPaymentProvider {
+  return configureBilling();
 }
 
 export function getPlan(id: string): Plan | undefined {

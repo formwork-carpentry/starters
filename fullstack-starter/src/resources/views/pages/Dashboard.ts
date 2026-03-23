@@ -1,7 +1,13 @@
 /**
  * Dashboard page — authenticated user dashboard with stats and islands.
  */
-import { IslandRenderer } from '@formwork/ui';
+import { IconHome, IconUser } from '@carpentry/icons';
+import { createLineChart } from '@carpentry/ui-charts';
+import { createCarpenterApp, Link, usePage } from '@carpentry/ui-react';
+import { dashboard } from 'routes/dashboard';
+import { home } from 'routes/home';
+import { posts } from 'routes/posts';
+import { IslandRenderer } from '@carpentry/formworks/ui';
 import { AppLayout } from '../layouts/AppLayout.js';
 import { NotificationBellIsland } from '../islands/NotificationBell.js';
 
@@ -19,6 +25,28 @@ interface DashboardProps {
 }
 
 export function DashboardPage(props: DashboardProps, islandRenderer: IslandRenderer): string {
+  const app = createCarpenterApp({
+    initialPage: {
+      component: 'Dashboard',
+      props: { stats: props.stats, user: props.user },
+      url: dashboard.index().href,
+      version: '1.0.0',
+    },
+  });
+  const page = usePage(app);
+  const homeLink = Link({ to: home.index(), children: 'Back home' });
+  const createPostLink = Link({ to: posts.create(), children: 'New Post' });
+  const postsLink = Link({ to: posts.index(), children: 'Manage Posts' });
+  const statsChart = createLineChart({
+    labels: ['Total', 'Published', 'Drafts', 'Comments'],
+    series: [{
+      name: 'Posts',
+      data: [props.stats.totalPosts, props.stats.publishedPosts, props.stats.draftPosts, props.stats.totalComments],
+    }],
+  });
+  const statTrend = statsChart.dataset.series[0].data
+    .map((value, index) => `<div style="display:flex; justify-content:space-between; padding:0.35rem 0; border-bottom:1px solid #eef2f7;"><span>${statsChart.dataset.labels[index]}</span><strong>${value}</strong></div>`)
+    .join('');
   const notificationBell = islandRenderer.island(NotificationBellIsland, {
     notifications: props.stats.recentNotifications,
     unreadCount: props.stats.recentNotifications.filter((n) => !n.read).length,
@@ -28,11 +56,11 @@ export function DashboardPage(props: DashboardProps, islandRenderer: IslandRende
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
       <div>
         <h1>Dashboard</h1>
-        <p style="color: #6c757d;">Welcome back, ${props.user.name}</p>
+        <p style="color: #6c757d; display:flex; align-items:center; gap:0.5rem;">${IconUser({ size: 16, title: 'Current user' })}<span>Welcome back, ${props.user.name}</span></p>
       </div>
       <div style="display: flex; gap: 1rem; align-items: center;">
         ${notificationBell}
-        <a href="/posts/create" class="btn btn-primary">New Post</a>
+        <a href="${createPostLink.props.href}" class="btn btn-primary">${String(createPostLink.props.children)}</a>
       </div>
     </div>
 
@@ -59,9 +87,9 @@ export function DashboardPage(props: DashboardProps, islandRenderer: IslandRende
       <div class="card">
         <h3 style="margin-bottom: 1rem;">Quick Actions</h3>
         <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-          <a href="/posts/create" style="color: #4361ee; text-decoration: none;">📝 Create New Post</a>
-          <a href="/admin/posts" style="color: #4361ee; text-decoration: none;">📋 Manage Posts</a>
-          <a href="/admin/users" style="color: #4361ee; text-decoration: none;">👥 Manage Users</a>
+          <a href="${createPostLink.props.href}" style="color: #4361ee; text-decoration: none;">📝 ${String(createPostLink.props.children)}</a>
+          <a href="${postsLink.props.href}" style="color: #4361ee; text-decoration: none;">📋 ${String(postsLink.props.children)}</a>
+          <a href="${homeLink.props.href}" style="color: #4361ee; text-decoration: none;">${IconHome({ size: 14, title: 'Home' })} ${String(homeLink.props.children)}</a>
           <a href="/admin/comments" style="color: #4361ee; text-decoration: none;">💬 Moderate Comments</a>
         </div>
       </div>
@@ -74,6 +102,11 @@ export function DashboardPage(props: DashboardProps, islandRenderer: IslandRende
           <tr><td style="color: #6c757d;">Dark Mode</td><td>${props.featureFlags.darkMode ? '✅ Enabled' : '❌ Disabled'}</td></tr>
           <tr><td style="color: #6c757d;">New Editor</td><td>${props.featureFlags.newEditor ? '✅ Beta' : '❌ Classic'}</td></tr>
         </table>
+        <div style="margin-top: 1rem;">
+          <h4 style="margin-bottom: 0.75rem;">Content Trend</h4>
+          ${statTrend}
+          <p style="margin-top: 0.75rem; color:#6c757d; font-size:0.85rem;">Current route: <code>${page.url}</code></p>
+        </div>
       </div>
     </div>
   `;

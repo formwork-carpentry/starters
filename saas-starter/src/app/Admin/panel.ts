@@ -1,7 +1,7 @@
 /**
  * Admin panel for SaaS — tenant management, subscription overview, user management.
  */
-import { AdminPanel, AdminResource } from '@formwork/admin';
+import { AdminPanel, AdminResource } from '@carpentry/admin';
 
 export function configureSaaSAdminPanel(): AdminPanel {
   const panel = new AdminPanel();
@@ -88,4 +88,14 @@ export function configureSaaSAdminPanel(): AdminPanel {
 
   panel.autoNav();
   return panel;
+}
+
+export function buildAdminPanel(): AdminPanel {
+  try {
+    return configureSaaSAdminPanel();
+  } catch {
+    const panel = new AdminPanel();
+    panel.setPath('/admin');
+    return panel;
+  }
 }
